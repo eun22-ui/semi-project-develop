@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="selectAllBook">
+		SELECT BOOK_ID
+			, BOOK_TITLE
+			, BOOK_AUTHOR
+			, PUBLISH_DATE
+			, ENROLL_DATE
+			, AGE_RANK
+	        , STATUS
+		FROM BOOK
+	</entry>
+	<entry key="selectUpdateBook">
+		SELECT BOOK_ID
+			, BOOK_TITLE
+			, BOOK_AUTHOR
+			, PUBLISHER
+			, PUBLISH_DATE
+			, AGE_RANK
+	        , SUMMARY
+	        , IMG_NAME
+		FROM BOOK
+		WHERE BOOK_ID = ?
+	</entry>
+	<entry key="selectBookCategory">
+		SELECT CATEGORY_NO
+		FROM BOOK_CATEGORY
+		WHERE BOOK_ID = ?
+	</entry>
+	<entry key="changeStatusBook">
+		UPDATE BOOK
+		SET STATUS = ?
+		WHERE BOOK_ID = ?
+	</entry>
+	
+	<entry key="removeCkNCategory">
+		DELETE BOOK_CATEGORY
+		WHERE BOOK_ID = ?
+	</entry>
+	<entry key="removeCkNBook">
+		DELETE BOOK
+		WHERE BOOK_ID = ?
+	</entry>
+	
+	<entry key="removeAllNCategory">
+		DELETE BOOK_CATEGORY
+		WHERE BOOK_ID IN (SELECT BOOK_ID
+						 FROM BOOK
+						 WHERE STATUS = 'N')
+	</entry>
+	<entry key="removeAllNBook">
+		DELETE BOOK
+		WHERE STATUS = 'N'
+	</entry>
+	<entry key="bookCategoryInfoDelete">
+		DELETE BOOK_CATEGORY_INFO
+		WHERE ? LIKE '%'||CATEGORY_NO||'%'
+		AND CATEGORY_NO !=0
+	</entry>
+	<entry key="bookCategoryDelete">
+		DELETE BOOK_CATEGORY
+		WHERE ? LIKE '%'||CATEGORY_NO||'%'
+		AND  BOOK_ID IN (SELECT A.BOOK_ID
+                          FROM(SELECT BOOK_ID
+                                    , COUNT(*) COUNT
+                               FROM BOOK_CATEGORY
+                               GROUP BY BOOK_ID
+                               ORDER BY BOOK_ID)A
+                          WHERE COUNT > 1)
+		AND CATEGORY_NO != 0
+	</entry>
+	<entry key="bookCategoryChangeZero">
+		UPDATE BOOK_CATEGORY
+		SET CATEGORY_NO = 0
+		WHERE ? LIKE '%'||CATEGORY_NO||'%'
+		AND BOOK_ID IN (SELECT A.BOOK_ID
+						  FROM(SELECT BOOK_ID
+		                    		, COUNT(*) COUNT
+		                       FROM BOOK_CATEGORY
+		                       GROUP BY BOOK_ID
+		                       ORDER BY BOOK_ID)A
+		                  WHERE COUNT = 1)
+		AND CATEGORY_NO != 0
+	</entry>
+	<entry key="insertNewBookCategoryInfo">
+		INSERT INTO BOOK_CATEGORY_INFO
+		VALUES(?,?)
+	</entry>
+	
+	<!-- 회원 관련 -->
+	<entry key="memberList">
+		SELECT *
+		FROM MEMBER
+	</entry>
+	
+	<entry key="deleteMember">
+		UPDATE MEMBER
+		SET STATUS = 'N'
+		WHERE USER_NO = ?
+	</entry>
+	
+	<entry key="rollbackMember">
+		UPDATE MEMBER
+		SET STATUS = 'Y'
+		WHERE USER_NO = ?
+	</entry>
+	
+	<entry key="findUserId">
+		SELECT *
+		FROM MEMBER
+		WHERE USER_Id LIKE '%'||?||'%'
+	</entry>
+
+	<entry key="findUserName">
+		SELECT *
+		FROM MEMBER
+		WHERE USER_NAME LIKE '%'||?||'%'
+	</entry>
+	
+	<entry key="realDelete">
+		DELETE FROM MEMBER
+		WHERE USER_NO LIKE '%'||?||'%'
+	</entry>
+
+	<entry key="rentCount">
+		SELECT COUNT(*) COUNT
+		FROM RENT
+		WHERE USER_NO = ?
+	</entry>
+	
+	<entry key="memberInfo">
+		SELECT USER_NO,
+	           USER_ID,
+	           USER_NAME,
+	           RENT_LIMIT
+		FROM MEMBER
+		WHERE USER_NO = ?
+	</entry>
+	
+	<entry key="updateLimit">
+		UPDATE MEMBER
+		SET RENT_LIMIT = ?
+		WHERE USER_NO = ?
+	</entry>
+	<!--  -->
+	
+	<entry key="BNONextVal">
+	 	SELECT SEQ_BNO.NEXTVAL "BID"
+		FROM DUAL
+	</entry>
+	<entry key="insertBook">
+		INSERT INTO BOOK
+		VALUES(?, ?, ?, ?, ?, DEFAULT, DEFAULT, ?, DEFAULT, ?,?)
+	</entry>
+	<entry key="insertBookCategory">
+		INSERT INTO BOOK_CATEGORY
+		VALUES(?,?)
+	</entry>
+	<entry key="updateBook">
+		UPDATE BOOK
+		SET BOOK_TITLE = ?
+		    , BOOK_AUTHOR = ?
+		    , PUBLISHER = ?
+		    , PUBLISH_DATE = ?
+		    , AGE_RANK = ?
+		    , SUMMARY = ?
+		    , IMG_NAME = ?
+		WHERE BOOK_ID = ?
+	</entry>
+	
+	<entry key="removeUpdateCategory">
+		DELETE BOOK_CATEGORY
+		WHERE BOOK_ID = ?
+	</entry>
+	<entry key="recommendBookId">
+		SELECT BOOK_ID
+		FROM RECOMMEND
+	</entry>
+	<entry key="commentInfo">
+		SELECT M.USER_NAME
+		        , M.USER_ID
+		        , BK.BOOK_TITLE
+		        , R.REPLY_CONTENT
+		        , BK.IMG_NAME
+		FROM REPLY R
+		JOIN BOARD BD USING(BOARD_NO)
+		JOIN BOOK BK ON(BK.BOOK_ID=BD.BOOK_ID)
+		JOIN MEMBER M ON(R.REPLY_WRITER = M.USER_NO)
+		WHERE ROWNUM = 1
+		AND BK.BOOK_ID = ?
+		ORDER BY R.CREATE_DATE
+	</entry>
+</properties>
