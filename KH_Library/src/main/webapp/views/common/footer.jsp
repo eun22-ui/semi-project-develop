@@ -48,7 +48,7 @@
 <body>
     <div id="footer">
    		<div align="center" id="text">
-   			KH도서관 03965 서울특별시 영등포구 선유동2로 57 이레빌딩(구관) 19F, 20F 전화번호 : 012-3456-7890 <br> <br>
+   			KH도서관   서울특별시 중구 세종대로 110   전화번호 : 012-3456-7890 <br> <br>
 							Copyright(c) All Rights Reserved
    		</div>
    		
@@ -63,7 +63,6 @@
 			    });
 			}
 		</script>
-		
     </div>
 </body>
 </html>

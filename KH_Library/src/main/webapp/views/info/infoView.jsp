@@ -26,6 +26,16 @@
 		margin-left: -220px;     
 	
 	}
+	
+	#body-wrap {
+    display: flex;
+    align-items: flex-start; /* 위쪽 정렬 */
+}
+
+	#content-area {
+	    margin-left: 100px; /* sideMenu와 간격 */
+	    flex: 1;           /* 남은 공간 채움 */
+	}
 
 </style>
 </head>
@@ -49,9 +59,9 @@
 			<h1 id="title">KH도서관에 오신 것을 환영합니다.</h1>  
 			<br>
 			<br>
-				<img id="titleImg" src="/library/views/info/info.jpg" width="800" height="300">
+			<img id="titleImg" src="/library/views/info/info.jpg" width="900" height="500">
 			
-			<pre class="contents">
+			<pre class="contents" style="padding-left: 80px;">
 				
 				KH도서관은 1984. 10월에 개관하여 장서 16만여권과 비도서 8천여점을 소장하고 있으며, 
 				디지털산업단지로 변모하고 있는 지역여건을 반영하여 IT자료를 특화자료로 수집하여 제공하고 있습니다.
@@ -74,9 +84,7 @@
 				감사합니다.
 				
 				
-				
 				- 서울특별시교육청 KH도서관장
-			
 					
 			</pre>
 			

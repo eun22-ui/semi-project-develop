@@ -184,7 +184,7 @@
 
 			<script>
 				$(function(){
-					
+
 					$(".fbList>tbody>tr").click(function(){
 						
 						var nno = $(this).children().first().text();
