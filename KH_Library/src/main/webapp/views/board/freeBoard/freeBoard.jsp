@@ -28,7 +28,7 @@
 
 <style type="text/css">
 .category {
-	margin-left: -950px;
+	margin-left: -850px;
 	font-size: 16px;
 }
 
@@ -46,7 +46,7 @@
 	color: #333;
 	border: 1px solid #3333335d;
 	border-radius: 5px;
-	padding: 5px 20px;
+	padding: 5px 10px;
 	font-size: 16px;
 	cursor: pointer;
 	position: relative;
@@ -54,7 +54,7 @@
 }
 
 .fbList tr {
-	height: 100px;
+	height: 70px;
 	border-top: 1px solid #ddd;
 	border-bottom: 1px solid #ddd;
 	border-left: none;
@@ -65,11 +65,15 @@
 	padding-left: 10px
 }
 
-.pageBtn button {
-	border: none;
-	width: 50px;
-	height: 50px;
-	background-color: gainsboroy;
+
+#body-wrap {
+    display: flex;
+    align-items: flex-start; /* 위쪽 정렬 */
+}
+
+#content-area {
+    margin-left: 100px; /* sideMenu와 간격 */
+    flex: 1;           /* 남은 공간 채움 */
 }
 </style>
 </head>
@@ -110,18 +114,16 @@
 				<%if(loginUser!=null) { %>
 
 				<div align="center">
-					<br> <a
-						href="<%=contextPath %>/insert.fb?currentPage=${pi.currentPage}"
-						class="list">글작성</a>
+					<br> <a href="<%=contextPath %>/insert.fb?currentPage=${pi.currentPage}" class="list">글작성</a>
 				</div>
 
 				<%} %>
 				<hr class="boarder">
-				<table border="1px" class="fbList" style="border: none;">
+				<table class="fbList" style="border: none;">
 					<thead>
 						<tr>
 							<th width="150">번호</th>
-							<th width="600">제목</th>
+							<th width="1200">제목</th>
 							<th width="150">작성자</th>
 							<th width="150">작성일</th>
 							<th width="150">조회수</th>
@@ -141,7 +143,7 @@
 			                %>
 						<tr>
 							<td width="150"><%=fb.getBoardNo() %></td>
-							<td width="600"><%=fb.getBoardTitle() %></td>
+							<td width="1200"><%=fb.getBoardTitle() %></td>
 							<td width="150"><%=maskedId %></td>
 							<td width="150"><%=fb.getDate() %></td>
 							<td width="150"><%=fb.getCount() %></td>
@@ -158,23 +160,23 @@
 			<div align="center" class="pageBtn">
 
 				<c:if test="${pi.currentPage != 1 }">
-					<button
+					<button class="btn btn-light"
 						onclick="location.href='freeBoard?currentPage=${pi.currentPage-1}'">이전</button>
 				</c:if>
 
 				<c:forEach var="i" begin="${pi.startPage }" end="${pi.endPage }">
 					<c:choose>
 						<c:when test="${i !=pi.currentPage }">
-							<button onclick="location.href='freeBoard?currentPage=${i}'">${i }</button>
+							<button class="btn btn-light" onclick="location.href='freeBoard?currentPage=${i}'">${i }</button>
 						</c:when>
 						<c:otherwise>
-							<button disabled>${i }</button>
+							<button class="btn btn-light" disabled>${i }</button>
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
 
 				<c:if test="${pi.currentPage != pi.maxPage }">
-					<button
+					<button class="btn btn-light"
 						onclick="location.href='freeBoard?currentPage=${pi.currentPage+1}'">다음</button>
 				</c:if>
 			</div>

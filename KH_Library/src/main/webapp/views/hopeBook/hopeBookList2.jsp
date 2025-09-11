@@ -150,7 +150,7 @@
 			
 			<br><br>
 			
-			<div align="center" class="">
+			<div align="center">
 				<c:if test="${pi.currentPage != 1 }">
 					<button class="btn btn-outline-primary" onclick="location.href='select.ho?sort=${oder }&currentPage=${pi.currentPage-1}'">이전</button>
 				</c:if>
@@ -161,7 +161,7 @@
 							<button class="btn btn-outline-primary" onclick="location.href='select.ho?sort=${oder }&currentPage=${i}'">${i }</button>
 						</c:when>
 						<c:otherwise>
-							<button class="btn btn-primary" disabled>${i }</button>
+							<button class="btn btn-outline-primary" disabled>${i }</button>
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>

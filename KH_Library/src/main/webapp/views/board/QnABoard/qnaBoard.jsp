@@ -24,103 +24,109 @@ ArrayList<Reply> rList = (ArrayList<Reply>)request.getAttribute("rList"); %>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-	<style type="text/css">
-        .category {
-			margin-left: -950px;
-			font-size: 16px;
+<style type="text/css">
+    .category {
+		margin-left: -850px;
+		font-size: 16px;
+	}
+	
+	.list {
+		color: #333;
+		border: 1px solid #3333335d;
+		border-radius: 5px;
+		padding: 5px 20px;
+		font-size: 16px;
+		cursor: pointer;
+		position: relative;
+		left: 480px;
+	}
+	
+	.replyWriter{
+		color: #333;
+		border: 1px solid #3333335d;
+		border-radius: 5px;
+		width: 80px;
+		height : 40px;
+		font-size: 16px;
+		cursor: pointer;
+	}
+	
+	.separator {
+		display: inline-block;
+		margin: 0 5px;
+	}
+	
+	.boarder {
+		border: none; /* 기본 테두리 제거 */
+		background-color: #333333c4;
+	}
+	
+	
+	.QnAList tr{
+		height: 100px;
+	    border-top: 1px solid #ddd;  
+	  	border-bottom: 1px solid #ddd; 
+	 	border-left: none; 
+	  	border-right: none;
+	}
+	
+	.QnAList td:nth-child(1),td:nth-child(5){
+		padding-left: 15px;
+	}
+	
+	.ox{
+		padding-left: 25px;
+	}
+	
+	.qListb{
+		padding-left: 10px;
+		padding-right: 10px;
+		border: none; 
+	}
+	
+	
+	.qContent {
+		   display: none;
+	}
+	
+	.qContent td.no-border {
+	    border: none !important;
+	}
 			
-		}
-		
-		.list {
-			color: #333;
-			border: 1px solid #3333335d;
-			border-radius: 5px;
-			padding: 5px 20px;
-			font-size: 16px;
-			cursor: pointer;
-			position: relative;
-			left: 520px;
-		}
-		
-		.replyWriter{
-			color: #333;
-			border: 1px solid #3333335d;
-			border-radius: 5px;
-			width: 80px;
-			height : 40px;
-			font-size: 16px;
-			cursor: pointer;
-		}
-		
-		.separator {
-			display: inline-block;
-			margin: 0 5px;
-		}
-		
-		.boarder {
-			border: none; /* 기본 테두리 제거 */
-			background-color: #333333c4;
-		}
-		
-		
-		.QnAList tr{
-			height: 100px;
-		    border-top: 1px solid #ddd;  
-		  	border-bottom: 1px solid #ddd; 
-		 	border-left: none; 
-		  	border-right: none;
-		}
-		
-		.QnAList td:nth-child(1),td:nth-child(5){
-			padding-left: 15px;
-		}
-		
-		.ox{
-			padding-left: 25px;
-		}
-		
-		.qListb{
-			padding-left: 20px;
-			text-align: left;
-		}
-		
-		
-		.qContent {
-			   display: none;
-		}
-		
-		.qContent td.no-border {
-		    border: none !important;
-		}
-				
-		#aList{
-			height: 200px;
-		    border-top: 1px solid #ddd;  
-		  	border-bottom: 1px solid #ddd; 
-		 	border-left: none; 
-		  	border-right: none;	
-		}
-		
-		#aList td:nth-child(3){
-		  padding-right: 100px;
-		  padding-top: 50px;    /* 텍스트 상단에 10px 여백 */
-		  padding-bottom: 50px; /* 텍스트 하단에 10px 여백 */
-		
-		}
-		.aListDml{
-			padding-left: 50px;
-		
-		}
-		
-		.aList{
-			display: none;
-		}
-		.pageBtn button{
-		border: none;
-	    width: 50px;   
-   		height: 50px;
-   		background-color: gainsboroy;   
-		}
+	#aList{
+	    border-top: 1px solid #ddd;  
+	  	border-bottom: 1px solid #ddd; 
+	 	border-left: none; 
+	  	border-right: none;	
+	}
+	
+	#aList td:nth-child(3){
+	  padding-right: 100px;
+	}
+	.aListDml{
+		padding-left: 10px;
+	
+	}
+	
+	.aList{
+		display: none;
+	}
+#body-wrap {
+    display: flex;
+    align-items: flex-start; /* 위쪽 정렬 */
+}
+
+#content-area {
+    margin-left: 100px; /* sideMenu와 간격 */
+    flex: 1;           /* 남은 공간 채움 */
+}
+
+
+.aList.showOnly, .showOnly td {
+    /* 토글될 때 적용할 스타일 */
+    background: #f5f5f5;
+    border: none;
+}
 	      
 	</style>
 </head>
@@ -166,7 +172,7 @@ ArrayList<Reply> rList = (ArrayList<Reply>)request.getAttribute("rList"); %>
 					 </div>        	
 			        		
 	        		<hr class="boarder">
-	                     <table border="1px" class="qnalist">
+	                     <table class="qnalist">
 			                <thead>
 			                    <tr>
 			                        <th width="150">번호</th>
@@ -174,7 +180,7 @@ ArrayList<Reply> rList = (ArrayList<Reply>)request.getAttribute("rList"); %>
 			                        <th width="1200">제목</th>            
 			                        <th width="150">작성자</th>
 			                        <th width="200">작성일</th>
-			                         <th colspan="2"></th>
+			                        <th colspan="4"></th>
 			                        <th width="150">처리상태</th>
 			                    </tr>
 			                </thead>
@@ -207,8 +213,8 @@ ArrayList<Reply> rList = (ArrayList<Reply>)request.getAttribute("rList"); %>
 							                        <td width="150"><b>Q</b></td>
 							                        <td width="1200"><%=b.getBoardTitle() %></td>
 							                        <td width="150"><%=maskedBid %></td>
-							                        <td width="250"><%=b.getDate() %></td>
-							                        <td colspan="2" ><button class="qListb" data-boardno="<%=b.getBoardNo() %>">▼</button> </td>
+							                        <td width="200"><%=b.getDate() %></td>
+							                        <td colspan="4" ><button class="qListb" data-boardno="<%=b.getBoardNo() %>">▼</button> </td>
 							                    	<td width="150" class="ox">O</td>
 							                        
 							                        <td class="aListDml">
@@ -229,15 +235,17 @@ ArrayList<Reply> rList = (ArrayList<Reply>)request.getAttribute("rList"); %>
 							                    
 							                    </tr>
 							                    <tr class="qContent" data-boardno="<%=b.getBoardNo() %>">
-							                    	<td colspan="7" class="no-border">ㄴ <%=b.getBoardContent() %></td>
+							                    	<td width="350" class="no-border"></td>
+							                    	<td colspan="10" class="no-border"><%=b.getBoardContent() %></td>
+							                    	<td width="400" class="no-border"></td>
 							                    </tr>
 							                    <tr class="aList" id="aList" data-boardno="<%=r.getBoardNo() %>">
 							                        <td width="150"><%=r.getBoardNo() %></td>
 							                        <td width="150"><b>A</b></td>
 							                        <td width="1200"><%=r.getReplyContent() %></td>
 							                        <td width="150"><%=maskedRid %></td>
-							                        <td width="250"><%=r.getDate() %></td>
-							                        
+							                        <td width="300"><%=r.getDate() %></td>
+							                        <td colspan="6" ></td>
 							                        <td class="aListDml">
 					                        		    <%if(loginUser!=null && loginUser.getUserId().equals("admin")){ %>
 															<form action="<%=contextPath %>/update.rp">
@@ -316,34 +324,44 @@ ArrayList<Reply> rList = (ArrayList<Reply>)request.getAttribute("rList"); %>
 						        var boardNo = $(this).data("boardno");
 						        
 						        // aList (답변 리스트) 토글
-						        $(".aList[data-boardno='" + boardNo + "']").toggle();
+						         var $target1 = $(".aList[data-boardno='" + boardNo + "']");
 						        
 						        // 해당 boardNo와 관련된 no-border td 요소도 토글
-						        $(".qContent[data-boardno='" + boardNo + "']").toggle();
+						        var $target2 = $(".qContent[data-boardno='" + boardNo + "']");
+						        
+						        $target1.toggleClass("showOnly");
+						        $target2.toggleClass("showOnly");
+						        
+						        $target1.toggle();  
+						        $target2.toggle();  
+						        
 						    });
 					});
 				</script>
 				
 			<br><br><br>
-		    <div align="center" class="pageBtn">
+		    <div align="center">
                 
                 <c:if test="${pi.currentPage != 1 }">
-                    <button onclick="location.href='qnaBoard?currentPage=${pi.currentPage-1}'">이전</button>
+                    <button class="btn btn-light" 
+                    	onclick="location.href='qnaBoard?currentPage=${pi.currentPage-1}'">이전</button>
                 </c:if>
                 
                 <c:forEach var="i" begin="${pi.startPage }" end="${pi.endPage }">
                     <c:choose>
                         <c:when test="${i !=pi.currentPage }">
-                            <button onclick="location.href='qnaBoard?currentPage=${i}'">${i }</button>
+                            <button class="btn btn-light"
+                            	onclick="location.href='qnaBoard?currentPage=${i}'">${i }</button>
                         </c:when>
                         <c:otherwise>
-                            <button disabled>${i }</button>
+                            <button class="btn btn-light" disabled>${i }</button>
                         </c:otherwise>
                     </c:choose>
                 </c:forEach>
                 
                 <c:if test="${pi.currentPage != pi.maxPage }">
-                    <button onclick="location.href='qnaBoard?currentPage=${pi.currentPage+1}'">다음</button>
+                    <button class="btn btn-light"
+                    	onclick="location.href='qnaBoard?currentPage=${pi.currentPage+1}'">다음</button>
                 </c:if>
             </div>
 				

@@ -15,22 +15,44 @@
 
 .item {
 	margin-right: 50px; /* 이미지와 텍스트 사이의 간격 */
+	margin-left: -50px; /* 이미지와 텍스트 사이의 간격 */
 }
 
 .comment, .commentInput {
-	width: 600px;
+	width: 800px;
 	height: 300px;
 	background-color: rgba(128, 128, 128, 0.1);
-	border-radius: 40px;
-	padding-top: 50px;
+	border-radius: 20px;
 	padding-left: 50px;
-	text-align: left;
+	text-align: left;	
+	vertical-align: top; /* 커서 위쪽 정렬 */
 }
 
 textarea {
 	width: 500px;
 	height: 150px;
 	resize: none;
+}
+
+.commentW,#submit,#back,#back2,.modify,.delete{
+	color: #333;
+	border: 1px solid #3333335d;
+	border-radius: 5px;
+	padding: 5px 10px;
+	font-size: 16px;
+	cursor: pointer;
+	position: relative;
+	left: 500px;
+}
+
+#body-wrap {
+    display: flex;
+    align-items: flex-start; /* 위쪽 정렬 */
+}
+
+#content-area {
+    margin-left: 100px; /* sideMenu와 간격 */
+    flex: 1;           /* 남은 공간 채움 */
 }
 </style>
 </head>
@@ -43,12 +65,9 @@ textarea {
 	<div id="body-wrap">
 		<%@include file="/views/common/sideMenu.jsp"%>
 		<div id="content-area">
-
 			<div class="outer">
-
 				<h2 align="center">한줄평</h2>
-				<br> <br> <br>
-
+				<br><hr><br><br>
 				<div class="list-area">
 					<div class="item">
 						<div class="thumbnail" align="center">
@@ -77,9 +96,9 @@ textarea {
 						</div>
 
 						<br> <br> <br> <br>
-						<hr>
+						<hr width="800">
 						이 책에 남긴 코멘트 : &nbsp;&nbsp;${rCount }개 <br> <br> 
-						<input class=commentInput style="display: none;"/> 
+						<textarea  class=commentInput style="display: none;"></textarea> 
 						<br> <br>
 						<button id="submit" style="display: none;">작성하기</button>
 						<button id="back" style="display: none;">뒤로가기</button>
@@ -89,7 +108,7 @@ textarea {
 							<c:forEach var="r" items="${rlist}">
 								<br>
 								<br>
-								<div class=comment>
+								<div class=comment style="padding-top: 50px; padding-left:30px;" >
 									NO :&nbsp;&nbsp;${r.replyNo}&nbsp; |&nbsp;&nbsp; 작성자
 									:&nbsp;&nbsp;${r.userNo}&nbsp; |&nbsp;&nbsp; 작성일
 									:&nbsp;&nbsp;${r.date}
@@ -249,10 +268,6 @@ textarea {
 			
 			
 			</script>
-
-
-
-
 
 				</div>
 			</div>
