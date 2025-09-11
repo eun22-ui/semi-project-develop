@@ -15,7 +15,6 @@ import com.kh.book.model.vo.BookCategoryInfo;
 import com.kh.common.JDBCTemplate;
 import com.kh.common.PageInfo;
 
-import oracle.jdbc.proxy.annotation.Pre;
 
 
 public class BookDao {

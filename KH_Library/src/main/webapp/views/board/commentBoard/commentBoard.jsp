@@ -52,6 +52,8 @@
 	height: 50px;
 	background-color: gainsboroy;
 }
+
+
 </style>
 
 </head>
@@ -72,8 +74,6 @@
 			})
 		</script>
 		<div id="content-area">
-
-
 			<div class="outer">
 				<h2 align="center">한줄평</h2>
 				<br>
@@ -103,33 +103,30 @@
 							</p>
 						</div>
 					</c:forEach>
+				</div>
+				
+				<br> <br> <br>
+				
+				<div align="center">
+					<c:if test="${pi.currentPage != 1 }">
+						<button class="btn btn-light"
+							onclick="location.href='commentBoard?currentPage=${pi.currentPage-1}'">이전</button>
+					</c:if>
+					<c:forEach var="i" begin="${pi.startPage }" end="${pi.endPage }">
+						<c:choose>
+							<c:when test="${i !=pi.currentPage }">
+								<button class="btn btn-light" onclick="location.href='commentBoard?currentPage=${i}'">${i }</button>
+							</c:when>
+							<c:otherwise>
+								<button class="btn btn-light" disabled>${i }</button>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
 
-
-					<br> <br> <br>
-					<div align="center" class="pageBtn">
-						<c:if test="${pi.currentPage != 1 }">
-							<button
-								onclick="location.href='commentBoard?currentPage=${pi.currentPage-1}'">이전</button>
-						</c:if>
-
-						<c:forEach var="i" begin="${pi.startPage }" end="${pi.endPage }">
-							<c:choose>
-								<c:when test="${i !=pi.currentPage }">
-									<button onclick="location.href='commentBoard?currentPage=${i}'">${i }</button>
-								</c:when>
-								<c:otherwise>
-									<button disabled>${i }</button>
-								</c:otherwise>
-							</c:choose>
-						</c:forEach>
-
-						<c:if test="${pi.currentPage != pi.maxPage }">
-							<button
-								onclick="location.href='commentBoard?currentPage=${pi.currentPage+1}'">다음</button>
-						</c:if>
-					</div>
-
-
+					<c:if test="${pi.currentPage != pi.maxPage }">
+						<button class="btn btn-light"
+							onclick="location.href='commentBoard?currentPage=${pi.currentPage+1}'">다음</button>
+					</c:if>
 				</div>
 			</div>
 		</div>

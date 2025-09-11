@@ -104,7 +104,7 @@
 						required="required"></textarea>
 
 					<br><br><br>
-					<button type="submit" class="list">등록하기</button>
+					<button type="submit" style="background-color: transparent;"  class="list">등록하기</button>
 					<a href="/library/qnaBoard?currentPage=1" class="list">목록으로</a>
 				</div>
 			</form>

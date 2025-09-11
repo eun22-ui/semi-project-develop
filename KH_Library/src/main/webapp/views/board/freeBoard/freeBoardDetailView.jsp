@@ -84,9 +84,8 @@ pre {
 }
 
 .m {
-	color: #333;
+	background-color: white;
 	border: none;
-	border-radius: 5px;
 	font-size: 16px;
 	cursor: pointer;
 	position: relative;
@@ -166,7 +165,7 @@ pre {
 
 				<br> <br>
 
-				<pre class="content">
+				<pre class="content" style="font-family: sans-serif; font-size:18px;">
 					
 					<%=fb.getBoardContent()%>
 									
@@ -287,8 +286,6 @@ pre {
 				
 		
 					$(function() {
-						
-						
 						// 댓글수정
 						$(document).on("click","#mBtn",function(){
 							
@@ -314,9 +311,8 @@ pre {
 								var t = $(textarea);
 								t.prop("readonly", true);
 								var changed = t.val();
-								
-								
-						 		 $.ajax({
+						 		
+								$.ajax({
 									url : '${contextPath}/update.frp',
 									type : "post",
 									data : {
@@ -331,7 +327,6 @@ pre {
 										}else{
 											alert(result.message);
 										}
-										
 									},
 									error : function(){
 										console.log("통신오류");

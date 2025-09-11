@@ -90,7 +90,7 @@
 					</textarea>
 
 					<br> <br> <br>
-					<button type="submit" class="list">수정하기</button>
+					<button type="submit" style="background-color: transparent;" class="list">수정하기</button>
 					<a href="/library/qnaBoard" class="list">목록으로</a>
 				</div>
 			</form>

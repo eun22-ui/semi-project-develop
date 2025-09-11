@@ -114,9 +114,8 @@
 						required="required"></textarea>
 
 					<br> <br> <br>
-					<button type="submit" class="list">등록하기</button>
-					<a href="/library/freeBoard?currentPage=<%=currentPage %>"
-						class="list">목록으로</a>
+					<button type="submit" style="background-color: transparent;" class="list">등록하기</button>
+					<a href="/library/freeBoard?currentPage=<%=currentPage %>" class="list">목록으로</a>
 				</div>		
 			</form>
 

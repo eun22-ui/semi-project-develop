@@ -85,9 +85,8 @@ pre {
 }
 
 .m {
-	color: #333;
+	background-color: white;
 	border: none;
-	border-radius: 5px;
 	font-size: 16px;
 	cursor: pointer;
 	position: relative;
@@ -167,7 +166,7 @@ pre {
 
 				<br><br>
 
-				<pre class="content">
+				<pre class="content"  style="font-family: sans-serif; font-size:18px;">
 					
 					<%=n.getNoticeContent()%>
 					

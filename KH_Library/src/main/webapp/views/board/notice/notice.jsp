@@ -26,7 +26,7 @@ ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list"); %>
 
 <style type="text/css">
 .category {
-	margin-left: -950px;
+	margin-left: -850px;
 	font-size: 16px;
 }
 
@@ -44,7 +44,7 @@ ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list"); %>
 	color: #333;
 	border: 1px solid #3333335d;
 	border-radius: 5px;
-	padding: 5px 20px;
+	padding: 5px 10px;
 	font-size: 16px;
 	cursor: pointer;
 	position: relative;
@@ -52,7 +52,7 @@ ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list"); %>
 }
 
 .noticeList tr {
-	height: 100px;
+	height: 70px;
 	border-top: 1px solid #ddd;
 	border-bottom: 1px solid #ddd;
 	border-left: none;
@@ -63,12 +63,19 @@ ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list"); %>
 	padding-left: 10px
 }
 
-.pageBtn button {
-	border: none;
-	width: 50px;
-	height: 50px;
-	background-color: gainsboroy;
+
+
+#body-wrap {
+    display: flex;
+    align-items: flex-start; /* 위쪽 정렬 */
 }
+
+#content-area {
+    margin-left: 100px; /* sideMenu와 간격 */
+    flex: 1;           /* 남은 공간 채움 */
+}
+
+
 </style>
 </head>
 <body>
@@ -113,11 +120,11 @@ ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list"); %>
 				<hr class="boarder">
 
 
-				<table border="1px" class="noticeList" style="border: none;">
+				<table  class="noticeList" style="border: none;">
 					<thead>
 						<tr>
 							<th width="150">번호</th>
-							<th width="600">제목</th>
+							<th width=1200">제목</th>
 							<th width="150">작성자</th>
 							<th width="150">작성일</th>
 							<th width="150">조회수</th>
@@ -134,7 +141,7 @@ ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list"); %>
 			                %>
 						<tr>
 							<td width="150"><%=n.getNoticeNo() %></td>
-							<td width="600"><%=n.getNoticeTitle() %></td>
+							<td width="1200"><%=n.getNoticeTitle() %></td>
 							<td width="150"><%=n.getUserNo() %></td>
 							<td width="150"><%=n.getDate() %></td>
 							<td width="150"><%=n.getNumber() %></td>
@@ -159,26 +166,25 @@ ArrayList<Notice> list = (ArrayList<Notice>)request.getAttribute("list"); %>
 				</script>
 
 			<br> <br> <br>
-			<div align="center" class="pageBtn">
-
+			<div align="center">
 				<c:if test="${pi.currentPage != 1 }">
-					<button
+					<button class="btn btn-light"
 						onclick="location.href='notice?currentPage=${pi.currentPage-1}'">이전</button>
 				</c:if>
-
 				<c:forEach var="i" begin="${pi.startPage }" end="${pi.endPage }">
 					<c:choose>
 						<c:when test="${i !=pi.currentPage }">
-							<button onclick="location.href='notice?currentPage=${i}'">${i }</button>
+							<button class="btn btn-light" 
+								onclick="location.href='notice?currentPage=${i}'">${i }</button>
 						</c:when>
 						<c:otherwise>
-							<button disabled>${i }</button>
+							<button class="btn btn-light" disabled>${i }</button>
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
 
 				<c:if test="${pi.currentPage != pi.maxPage }">
-					<button
+					<button class="btn btn-light"
 						onclick="location.href='notice?currentPage=${pi.currentPage+1}'">다음</button>
 				</c:if>
 			</div>
