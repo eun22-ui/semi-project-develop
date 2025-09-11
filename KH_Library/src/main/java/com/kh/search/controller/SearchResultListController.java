@@ -35,9 +35,12 @@ public class SearchResultListController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-
+		 request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html; charset=UTF-8");
 		String keywordCategory = request.getParameter("search-keyword-category");
 		String keyword = request.getParameter("search-keyword");
+//		System.out.println(keywordCategory);
+//		System.out.println(keyword);
 		
 		String[] keyCategory = null;
 		if(keywordCategory.equals("all")) {//검색 키워드 카테고리
@@ -51,6 +54,7 @@ public class SearchResultListController extends HttpServlet {
 		}
 		String[] bookcList = (String[]) request.getParameterValues("search-book-category");
 		String category = "";
+		System.out.println(bookcList);
 		if(bookcList!=null) {
 			category = String.join(",", bookcList);
 		}else {

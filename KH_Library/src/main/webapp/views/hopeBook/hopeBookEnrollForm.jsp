@@ -51,7 +51,7 @@
 			</c:if>
 			
 			<br><br>
-			<form action="/insert.ho" method="post">
+			<form action="/library/insert.ho" method="post">
 				<input type="hidden" name="hopeUser" value="${loginUser.userNo }">
 				
 				<table class="table table-bordered" style="width: 70%;" align="center">
