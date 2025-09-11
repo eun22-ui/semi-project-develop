@@ -51,12 +51,12 @@
 	border: none;
 }
 
-#loginBtn {
-	width: 350px;
-	height: 45px;
-	border-radius: 12px;
-	background-color: cadetblue;
+#searchArea{
+	margin-top: 30px;
+	color: black;
+    text-decoration: none;
 }
+
 </style>
 </head>
 <body>	
@@ -89,9 +89,9 @@
 						placeholder="비밀번호">
 				</div>
 				<br>
-				<button type="submit" id="loginBtn">로그인</button>
+				<button type="submit" id="loginBtn" class="btn btn-light" style="width: 80px; height: 30px;">로그인</button>
 				<div id="searchArea">
-					<a href="">아이디찾기</a> <a href="">비밀번호찾기</a> <a href="${contextPath}/enrollForm.me">회원가입</a>
+					<a href="" >아이디찾기</a> <a href="">비밀번호찾기</a> <a href="${contextPath}/enrollForm.me">회원가입</a>
 				</div>
 
 			</form>
