@@ -15,6 +15,11 @@
 
 <br>
 
+<hr>
+
+> ### 시연영상
+![Image](https://github.com/user-attachments/assets/2acf894a-8ef6-4eb8-8026-65404cb26125)
+<br>
 
 > ### 아키텍쳐 / 기술스스택 
 * 운영체제 : Window OS
@@ -85,8 +90,7 @@
 
 <br>
 
-> ### 시연영상
-![Image](https://github.com/user-attachments/assets/2acf894a-8ef6-4eb8-8026-65404cb26125)
+
 
 
 
