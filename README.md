@@ -31,8 +31,9 @@
 <br>
 
 > ### 시연영상
-[] https://github.com/eun22-ui/semi-project-develop/issues/4#issue-3423230239
+![Image](https://github.com/user-attachments/assets/2acf894a-8ef6-4eb8-8026-65404cb26125)
 
+<br>
 
 > ### ERD 구조
 > <img width="789" height="579" alt="image" src="https://github.com/user-attachments/assets/44ff2173-fb71-4cac-8e1e-3ff8138b0e17" />
