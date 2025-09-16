@@ -53,9 +53,8 @@ public class FreeBoardReplyEnrollForm extends HttpServlet {
 		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
 		int writerNo = Integer.parseInt(request.getParameter("writerNo"));
 		int currentPage = Integer.parseInt(request.getParameter("currentPage"));
-		
 		int result = new ReplyService().insertFBReply(content,boardNo,writerNo);
-		
+
 		if(result>0) {
 			request.getSession().setAttribute("alertMsg", "댓글 작성이 완료되었습니다");
 			response.sendRedirect(request.getContextPath()+"/freeBoard?currentPage="+currentPage);

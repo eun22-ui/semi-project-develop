@@ -118,10 +118,9 @@
 					<a href="/library/freeBoard?currentPage=<%=currentPage %>" class="list">목록으로</a>
 				</div>		
 			</form>
-
 		</div>
 	</div>
-
+	
 	<%@include file="/views/common/footer.jsp"%>
 </body>
 </html>
