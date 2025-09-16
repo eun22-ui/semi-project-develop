@@ -33,7 +33,7 @@
 
 
 <br>
-<hr>
+
 > ### ERD 구조
 > <img width="600" height="450" alt="image" src="https://github.com/user-attachments/assets/44ff2173-fb71-4cac-8e1e-3ff8138b0e17" />
 
