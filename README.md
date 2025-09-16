@@ -23,7 +23,7 @@
 <br>
 <hr>
 
-> ### 아키텍쳐 / 기술스스택 
+> ### 아키텍쳐 / 기술스택 
 * 운영체제 : Window OS
 
 * 사용언어 : Web backend / Web frontend
