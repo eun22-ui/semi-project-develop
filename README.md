@@ -18,7 +18,7 @@
 
 
 > ### 시연영상
-![Image](https://github.com/user-attachments/assets/2acf894a-8ef6-4eb8-8026-65404cb26125)
+![Image](https://github.com/user-attachments/assets/40fb52c3-cb28-47ca-8296-ada878c893b5)
 
 <br>
 <hr>
