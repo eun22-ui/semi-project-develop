@@ -34,9 +34,9 @@
 ![Image](https://github.com/user-attachments/assets/2acf894a-8ef6-4eb8-8026-65404cb26125)
 
 <br>
+<hr>
 
-> ### ERD 구조
-> <img width="789" height="579" alt="image" src="https://github.com/user-attachments/assets/44ff2173-fb71-4cac-8e1e-3ff8138b0e17" />
+
 
 <br>
 
@@ -81,7 +81,12 @@
 * 한줄평 (CRUD) 
 * 자유게시판 (CRUD)
 * 도서관 안내 
-* 온프레미스 환경 구축 – 서버 / 데이터베이스 
+* 온프레미스 환경 구축 – 서버 / 데이터베이스
+
+<br>
+
+> ### ERD 구조
+> <img width="600" height="450" alt="image" src="https://github.com/user-attachments/assets/44ff2173-fb71-4cac-8e1e-3ff8138b0e17" />
 
 
 
